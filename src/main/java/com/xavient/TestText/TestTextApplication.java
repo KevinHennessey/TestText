@@ -1,5 +1,7 @@
 package com.xavient.TestText;
 
+import java.net.URI;
+
 import org.springframework.boot.SpringApplication;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
@@ -19,7 +21,8 @@ public class TestTextApplication {
 	    Message message = Message
 	      .creator(new PhoneNumber(TO_NUMBER), new PhoneNumber(FROM_NUMBER),
 	        "Texting from twilio sample app")
-	      //.setMediaUrl("https://climacons.herokuapp.com/clear.png")
+	      //.setStatusCallback(URI.create("http://api.runscope.com/radar/inbound/1260b0e3-7ace-49e3-8633-6336dc0d933d"))
+	      //.setStatusCallback(URI.create("localhost:8080/MessageStatus"))
 	      .create();
 	    System.out.println(message.getSid());
 		SpringApplication.run(TestTextApplication.class, args);
